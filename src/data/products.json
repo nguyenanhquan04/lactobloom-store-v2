@@ -2,15 +2,15 @@
   {
     "id": "1",
     "sku": "asdf123",
-    "name": "Jacket",
+    "name": "European Milk 01",
     "price": 12.45,
     "discount": 15,
     "offerEnd": "October 5, 2020 12:11:00",
     "new": false,
     "rating": 3,
     "saleCount": 54,
-    "category": ["fashion", "men"],
-    "tag": ["fashion", "men", "jacket", "full sleeve"],
+    "category": ["Mom", "European Milk"],
+    "tag": ["Milk", "Mom", "European"],
     "variation": [
       {
         "color": "white",
