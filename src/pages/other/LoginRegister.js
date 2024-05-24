@@ -7,6 +7,9 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 const LoginRegister = ({ location }) => {
   const { pathname } = location;
@@ -60,6 +63,19 @@ const LoginRegister = ({ location }) => {
                                 name="user-password"
                                 placeholder="Password"
                               />
+                              <div>
+                              <GoogleOAuthProvider clientId="64377350964-84072rsp206n3hqumg4fmt3em36s8a8g.apps.googleusercontent.com">
+                              <GoogleLogin
+  onSuccess={credentialResponse => {
+    const decoded = jwtDecode(credentialResponse?.credential);
+    console.log(decoded);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+/>
+                                </GoogleOAuthProvider>
+                              </div>
                               <div className="button-box">
                                 <div className="login-toggle-btn">
                                   <input type="checkbox" />
@@ -68,9 +84,11 @@ const LoginRegister = ({ location }) => {
                                     Forgot Password?
                                   </Link>
                                 </div>
+                                <div class="button-wrapper">
                                 <button type="submit">
                                   <span>Login</span>
                                 </button>
+                                </div>
                               </div>
                             </form>
                           </div>
@@ -96,9 +114,11 @@ const LoginRegister = ({ location }) => {
                                 type="email"
                               />
                               <div className="button-box">
+                              <div class="button-wrapper">
                                 <button type="submit">
                                   <span>Register</span>
                                 </button>
+                              </div>
                               </div>
                             </form>
                           </div>
